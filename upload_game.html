@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload New Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        form {
+            width: 300px;
+            margin: auto;
+        }
+        label, input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Upload New Game</h2>
+    <form action="path_to_server_endpoint" method="post" enctype="multipart/form-data">
+        <label for="gameName">Game Name:</label>
+        <input type="text" id="gameName" name="gameName" required>
+
+        <label for="gameCreators">Creators:</label>
+        <input type="text" id="gameCreators" name="gameCreators" required>
+
+        <label for="gameClass">Class:</label>
+        <input type="text" id="gameClass" name="gameClass" required>
+
+        <label for="releaseYear">Release Year:</label>
+        <input type="number" id="releaseYear" name="releaseYear" required>
+
+        <label for="platform">Platform:</label>
+        <input type="text" id="platform" name="platform" required>
+
+        <label for="gameImage">Game Image:</label>
+        <input type="file" id="gameImage" name="gameImage" accept="image/*" required>
+
+        <input type="submit" value="Upload Game">
+    </form>
+</body>
+</html>
