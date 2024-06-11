@@ -106,12 +106,12 @@ function addAllGameRows() {
 
 window.onload = addAllGameRows; //loads all the games when the page is loaded
 
-function addGameRow() {
+function addGameRow(bannerSrc, gameName, developers) {
     const tableBody = document.getElementById('game-table-body');
     const newGame = {
-        bannerSrc: 'img/banners/new_game.PNG',
-        gameName: 'Game Three',
-        developers: 'New Dev, Another Dev',
+        bannerSrc: bannerSrc,
+        gameName: gameName,
+        developers: developers,
         studio: 'Studio 9',
         year: '2022',
         downloadLink: 'new_path',

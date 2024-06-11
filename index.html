@@ -107,7 +107,7 @@
                     <label for="gameImage">Game Image:</label>
                     <input type="file" id="gameImage" name="gameImage" accept="image/*" required>
                 </div>
-                <button onclick="addGameRow(); closeModal()">Upload Game</button>
+                <button onclick="addGameRow(gameImage.value, gameName.value, gameCreators.value); closeModal()">Upload Game</button>
                 <!-- <input type="submit" value="Upload Game"> -->
             </form>
         </div>
