@@ -82,7 +82,7 @@
         <div class="modal-content">
             <span class="close-button" onclick="closeModal()">&times;</span>
             <h2>Upload New Game</h2>
-            <form action="path_to_server_endpoint" method="post" enctype="multipart/form-data">
+            <form>
                 <div class="form-row">
                     <label for="gameName">Game Name:</label>
                     <input type="text" id="gameName" name="gameName" required>
@@ -100,14 +100,10 @@
                     <input type="number" id="releaseYear" name="releaseYear" required>
                 </div>
                 <div class="form-row">
-                    <label for="platform">Platform:</label>
-                    <input type="text" id="platform" name="platform" required>
-                </div>
-                <div class="form-row">
                     <label for="gameImage">Game Image:</label>
                     <input type="file" id="gameImage" name="gameImage" accept="image/*" required>
                 </div>
-                <button onclick="addGameRow(gameImage.value, gameName.value, gameCreators.value); closeModal()">Upload Game</button>
+                <button onclick="addGameRow(gameImage.value, gameName.value, gameCreators.value, gameClass.value, releaseYear.value); closeModal()">Upload Game</button>
                 <!-- <input type="submit" value="Upload Game"> -->
             </form>
         </div>

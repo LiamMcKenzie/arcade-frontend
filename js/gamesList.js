@@ -73,9 +73,9 @@ function createTableRow(game) {
     developersCell.textContent = game.developers;
     tr.appendChild(developersCell);
 
-    const studioCell = document.createElement('td');
-    studioCell.textContent = game.studio;
-    tr.appendChild(studioCell);
+    const classCell = document.createElement('td');
+    classCell.textContent = game.className;
+    tr.appendChild(classCell);
 
     const yearCell = document.createElement('td');
     yearCell.textContent = game.year;
@@ -106,15 +106,15 @@ function addAllGameRows() {
 
 window.onload = addAllGameRows; //loads all the games when the page is loaded
 
-function addGameRow(bannerSrc, gameName, developers) {
+function addGameRow(bannerSrc, gameName, developers, className, year, downloadLink) {
     const tableBody = document.getElementById('game-table-body');
     const newGame = {
         bannerSrc: bannerSrc,
         gameName: gameName,
         developers: developers,
-        studio: 'Studio 9',
-        year: '2022',
-        downloadLink: 'new_path',
+        className: className,
+        year: year,
+        downloadLink: 'downloadables/ScaredKrow 1.1.zip',
         size: '60MB'
     };
     games.push(newGame);
