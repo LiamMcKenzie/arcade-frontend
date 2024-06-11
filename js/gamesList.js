@@ -1,4 +1,31 @@
-var games = [
+//https://www.w3schools.com/js/js_cookies.asp
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + JSON.stringify(value) + ";" + expires + ";path=/";
+}
+
+function getCookie(name)
+{
+    const cookieName = name + "=";
+    const cookieArray = document.cookie.split(';');
+    for (let i = 0; i < cookieArray.length; i++) {
+        let cookie = cookieArray[i];
+        while (cookie.charAt(0) == ' ') {
+            cookie = cookie.substring(1);
+        }
+
+
+        if (cookie.indexOf(cookieName) == 0) {
+            return JSON.parse(cookie.substring(cookieName.length, cookie.length));
+        }
+    }
+    return "";
+
+}
+
+var games = getCookie('gamesList')|| [
     {
         bannerSrc: 'img/banners/frontend progress.PNG',
         gameName: 'Game One',
@@ -91,6 +118,7 @@ function addGameRow() {
         size: '60MB'
     };
     games.push(newGame);
+    setCookie('gamesList', games, 7);
     const newRow = createTableRow(newGame);
     tableBody.appendChild(newRow);
 }
