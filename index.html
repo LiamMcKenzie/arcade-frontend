@@ -75,7 +75,7 @@
         </tbody>
     </table>
 
-    <button onclick="addGameRow()">generate</button>
+    <!-- <button onclick="addGameRow()">generate</button> -->
 
 
     <div id="uploadModal" class="modal">
@@ -107,7 +107,8 @@
                     <label for="gameImage">Game Image:</label>
                     <input type="file" id="gameImage" name="gameImage" accept="image/*" required>
                 </div>
-                <input type="submit" value="Upload Game">
+                <button onclick="addGameRow(); closeModal()">Upload Game</button>
+                <!-- <input type="submit" value="Upload Game"> -->
             </form>
         </div>
     </div>
