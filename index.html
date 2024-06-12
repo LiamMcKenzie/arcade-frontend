@@ -7,6 +7,7 @@
     <link rel="icon" href="img/icon.svg">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/modal.js"></script>
+    <script src="js/gamesList.js"></script>
 </head>
 <body>
     <div class="header">
@@ -14,7 +15,7 @@
         <button class="upload-button" onclick="openModal()">Upload Game</button>
     </div>
     
-    <table>
+    <!-- <table>
         <thead>
             <tr>
                 <th>Image</th>
@@ -42,7 +43,7 @@
                 <td>Alice Smith, Bob Johnson</td>
                 <td>Intro App Dev</td>
                 <td>2018</td>
-                <td><a href="path_here" class="download-button">Download</a></td>
+                <td><a href="downloadables/ScaredKrow 1.1.zip" class="download-button" download="download">Download</a></td>
                 <td>75MB</td>
             </tr>
             <tr>
@@ -55,13 +56,33 @@
                 <td>120MB</td>
             </tr>
         </tbody>
+    </table> -->
+
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Creators</th>
+                <th>Class</th>
+                <th>Release Year</th>
+                <th>Download</th>
+                <th>Size</th>
+            </tr>
+        </thead>
+        <tbody id="game-table-body">
+
+        </tbody>
     </table>
+
+    <!-- <button onclick="addGameRow()">generate</button> -->
+
 
     <div id="uploadModal" class="modal">
         <div class="modal-content">
             <span class="close-button" onclick="closeModal()">&times;</span>
             <h2>Upload New Game</h2>
-            <form action="path_to_server_endpoint" method="post" enctype="multipart/form-data">
+            <form>
                 <div class="form-row">
                     <label for="gameName">Game Name:</label>
                     <input type="text" id="gameName" name="gameName" required>
@@ -79,14 +100,11 @@
                     <input type="number" id="releaseYear" name="releaseYear" required>
                 </div>
                 <div class="form-row">
-                    <label for="platform">Platform:</label>
-                    <input type="text" id="platform" name="platform" required>
-                </div>
-                <div class="form-row">
                     <label for="gameImage">Game Image:</label>
                     <input type="file" id="gameImage" name="gameImage" accept="image/*" required>
                 </div>
-                <input type="submit" value="Upload Game">
+                <button onclick="addGameRow(gameImage.value, gameName.value, gameCreators.value, gameClass.value, releaseYear.value); closeModal()">Upload Game</button>
+                <!-- <input type="submit" value="Upload Game"> -->
             </form>
         </div>
     </div>
