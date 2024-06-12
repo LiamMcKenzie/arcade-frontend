@@ -30,7 +30,7 @@ var games = getCookie('gamesList')|| [
         bannerSrc: 'img/banners/frontend progress.PNG',
         gameName: 'Game One',
         developers: 'John Doe, Jane Doe',
-        studio: 'Studio 5',
+        className: 'Studio 5',
         year: '2020',
         downloadLink: 'downloadables/ScaredKrow 1.1.zip',
         size: '50MB'
@@ -39,7 +39,7 @@ var games = getCookie('gamesList')|| [
         bannerSrc: 'img/banners/Capture7.PNG',
         gameName: 'Game Two',
         developers: 'Alice Smith, Bob Johnson',
-        studio: 'Intro App Dev',
+        className: 'Intro App Dev',
         year: '2018',
         downloadLink: 'downloadables/ScaredKrow 1.1.zip',
         size: '75MB'
@@ -48,7 +48,7 @@ var games = getCookie('gamesList')|| [
         bannerSrc: 'img/banners/colour palette.PNG',
         gameName: 'Game Three',
         developers: 'Michael Brown, Rachel Green',
-        studio: 'Game Development',
+        className: 'Game Development',
         year: '2019',
         downloadLink: 'downloadables/ScaredKrow 1.1.zip',
         size: '120MB'
