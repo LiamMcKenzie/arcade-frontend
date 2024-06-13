@@ -36,7 +36,7 @@
         <div class="modal-content">
             <span class="close-button" onclick="closeModal()">&times;</span>
             <h2>Upload New Game</h2>
-            <form>
+            <form autocomplete="off">
                 <div class="form-row">
                     <label for="gameName">Game Name:</label>
                     <input type="text" id="gameName" name="gameName" required>
@@ -57,7 +57,7 @@
                     <label for="gameImage">Game Image:</label>
                     <input type="file" id="gameImage" name="gameImage" accept="image/*" required>
                 </div>
-                <button onclick="addGameRow(gameImage.value, gameName.value, gameCreators.value, gameClass.value, releaseYear.value); closeModal()">Upload Game</button>
+                <button onclick="addGameRow(gameImage.files[0], gameName.value, gameCreators.value, gameClass.value, releaseYear.value); closeModal()">Upload Game</button>
             </form>
         </div>
     </div>

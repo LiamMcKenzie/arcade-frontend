@@ -89,22 +89,34 @@ function addAllGameRows() {
     });
 }
 
+function convertImageToBase64(file, callback) { 
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+        callback(reader.result);
+    });
+    reader.readAsDataURL(file);
+}
+
 window.onload = addAllGameRows; //loads all the games when the page is loaded
+
+
 
 function addGameRow(bannerSrc, gameName, developers, className, year, downloadLink) {
     const tableBody = document.getElementById('game-table-body');
 
-    const newGame = {
-        bannerSrc: 'img/banners/frontend progress.PNG',
-        gameName: gameName,
-        developers: developers,
-        className: className,
-        year: year,
-        downloadLink: 'downloadables/ScaredKrow 1.1.zip',
-        size: '60MB'
-    };
-    games.push(newGame);
-    setLocalStorage('gamesList', games, 7);
-    const newRow = createTableRow(newGame);
-    tableBody.appendChild(newRow);
+    convertImageToBase64(bannerSrc, result => {
+        const newGame = {
+            bannerSrc: result,
+            gameName: gameName,
+            developers: developers,
+            className: className,
+            year: year,
+            downloadLink: 'downloadables/ScaredKrow 1.1.zip',
+            size: '60MB'
+        };
+        games.push(newGame);
+        setLocalStorage('gamesList', games, 7);
+        const newRow = createTableRow(newGame);
+        tableBody.appendChild(newRow);
+    });
 }
