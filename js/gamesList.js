@@ -1,61 +1,5 @@
 //https://www.w3schools.com/js/js_cookies.asp
 //https://medium.com/@lancelyao/browser-storage-local-storage-session-storage-cookie-indexeddb-and-websql-be6721ebe32a
-// function setCookie(name, value, days) {
-//     const date = new Date();
-//     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-//     const expires = "expires=" + date.toUTCString();
-//     document.cookie = name + "=" + JSON.stringify(value) + ";" + expires + ";path=/";
-// }
-
-// function getCookie(name)
-// {
-//     const cookieName = name + "=";
-//     const cookieArray = document.cookie.split(';');
-//     for (let i = 0; i < cookieArray.length; i++) {
-//         let cookie = cookieArray[i];
-//         while (cookie.charAt(0) == ' ') {
-//             cookie = cookie.substring(1);
-//         }
-
-
-//         if (cookie.indexOf(cookieName) == 0) {
-//             return JSON.parse(cookie.substring(cookieName.length, cookie.length));
-//         }
-//     }
-//     return "";
-
-// }
-
-// var games = getCookie('gamesList')|| [
-//     {
-//         bannerSrc: 'img/banners/frontend progress.PNG',
-//         gameName: 'Game One',
-//         developers: 'John Doe, Jane Doe',
-//         className: 'Studio 5',
-//         year: '2020',
-//         downloadLink: 'downloadables/ScaredKrow 1.1.zip',
-//         size: '50MB'
-//     },
-//     {
-//         bannerSrc: 'img/banners/Capture7.PNG',
-//         gameName: 'Game Two',
-//         developers: 'Alice Smith, Bob Johnson',
-//         className: 'Intro App Dev',
-//         year: '2018',
-//         downloadLink: 'downloadables/ScaredKrow 1.1.zip',
-//         size: '75MB'
-//     },
-//     {
-//         bannerSrc: 'img/banners/colour palette.PNG',
-//         gameName: 'Game Three',
-//         developers: 'Michael Brown, Rachel Green',
-//         className: 'Game Development',
-//         year: '2019',
-//         downloadLink: 'downloadables/ScaredKrow 1.1.zip',
-//         size: '120MB'
-//     },
-// ]
-
 
 function setLocalStorage(name, value) {
     localStorage.setItem(name, JSON.stringify(value));
@@ -95,8 +39,6 @@ var games = getLocalStorage('gamesList') || [
         size: '120MB'
     },
 ]
-
-
 
 function createTableRow(game) {
     const tr = document.createElement('tr');
@@ -151,6 +93,7 @@ window.onload = addAllGameRows; //loads all the games when the page is loaded
 
 function addGameRow(bannerSrc, gameName, developers, className, year, downloadLink) {
     const tableBody = document.getElementById('game-table-body');
+
     const newGame = {
         bannerSrc: 'img/banners/frontend progress.PNG',
         gameName: gameName,
