@@ -14,49 +14,6 @@
         <h2>Game List</h2>
         <button class="upload-button" onclick="openModal()">Upload Game</button>
     </div>
-    
-    <!-- <table>
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Creators</th>
-                <th>Class</th>
-                <th>Release Year</th>
-                <th>Download</th>
-                <th>Size</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><img src="img/banners/frontend progress.PNG" alt="Game One Banner"></td>
-                <td>Game One</td>
-                <td>John Doe, Jane Doe</td>
-                <td>Studio 5</td>
-                <td>2020</td>
-                <td><a href="path_here" class="download-button">Download</a></td>
-                <td>50MB</td>
-            </tr>
-            <tr>
-                <td><img src="img/banners/Capture7.PNG" alt="Game Two Banner"></td>
-                <td>Game Two</td>
-                <td>Alice Smith, Bob Johnson</td>
-                <td>Intro App Dev</td>
-                <td>2018</td>
-                <td><a href="downloadables/ScaredKrow 1.1.zip" class="download-button" download="download">Download</a></td>
-                <td>75MB</td>
-            </tr>
-            <tr>
-                <td><img src="img/banners/colour palette.PNG" alt="Game Three Banner"></td>
-                <td>Game Three</td>
-                <td>Michael Brown, Rachel Green</td>
-                <td>Game Development</td>
-                <td>2019</td>
-                <td><a href="path_here" class="download-button">Download</a></td>
-                <td>120MB</td>
-            </tr>
-        </tbody>
-    </table> -->
 
     <table>
         <thead>
@@ -74,9 +31,6 @@
 
         </tbody>
     </table>
-
-    <!-- <button onclick="addGameRow()">generate</button> -->
-
 
     <div id="uploadModal" class="modal">
         <div class="modal-content">
@@ -104,7 +58,6 @@
                     <input type="file" id="gameImage" name="gameImage" accept="image/*" required>
                 </div>
                 <button onclick="addGameRow(gameImage.value, gameName.value, gameCreators.value, gameClass.value, releaseYear.value); closeModal()">Upload Game</button>
-                <!-- <input type="submit" value="Upload Game"> -->
             </form>
         </div>
     </div>
