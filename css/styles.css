@@ -1,14 +1,25 @@
 :root{
     --light-bg: #f2f2f2;
-    --light-text: #343a40;
+    --light-text: #343640;
     --light-accent: #d9d9d9;
 
-    --dark-bg: #343a40;
+    --dark-bg: #343640;
     --dark-text: #f2f2f2;
-    --dark-accent: #485159;
+    --dark-accent: #484b59;
 
+    --exit-button: #cc4949;
+    --exit-button-hover: #993737;
 
+    --green-button: #6acc49;
+    --green-button-hover: #509937;
 
+    --blue-button: #4980cc;
+    --blue-button-hover: #376099;
+}
+
+::placeholder {
+    color: var(--light-text);
+    opacity: 0.5;
 }
 
 body {
@@ -29,17 +40,30 @@ body.dark-mode {
 
 }
 
+
 .upload-button, .close-button{
-    background-color: #007BFF;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
     cursor: pointer;
 }
-.upload-button:hover, .close-button:hover {
-    background-color: #0056b3;
+
+.upload-button {
+    background-color: var(--blue-button);
 }
+.upload-button:hover {
+    background-color: var(--blue-button-hover);
+}
+
+.close-button {
+    background-color:var(--exit-button);
+}
+.close-button:hover{
+    background-color: var(--exit-button-hover);
+}
+
+
 
 .toggle-dark-mode
 {
@@ -127,14 +151,55 @@ img {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
     width: 80%;
     max-width: 600px;
-    height: 50%;
+    /* height: 50%; */
 }
-.form-row {
+
+body.dark-mode .modal-content
+{
+    background-color: var(--dark-accent);
+    color: var(--dark-text);
+}
+
+.modal-content p {
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+.modal-content input{
     width: 100%;
-    margin-bottom: 20px;
+    padding: 5px 0px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--light-accent);
+}
+
+.modal-content form{
+
+}
+
+.form-grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 20px;
+
+}
+
+.form-grid .form-row{
+    width: 100%;
+}
+
+.form-row {
+    width: 50%;
+    margin: auto;
+}
+
+.modal-content .upload-button
+{
+    width: 50%;
+    margin: auto;
+    display: block;
 }
 .close-button {
     color: white;
