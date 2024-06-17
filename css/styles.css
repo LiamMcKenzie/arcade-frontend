@@ -1,7 +1,27 @@
+:root{
+    --light-bg: #f2f2f2;
+    --light-text: #343a40;
+    --light-accent: #d9d9d9;
+
+    --dark-bg: #343a40;
+    --dark-text: #f2f2f2;
+    --dark-accent: #485159;
+
+
+
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+}
+
+body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
 }
 .header{
     display: flex;
@@ -19,6 +39,34 @@ body {
 .upload-button:hover, .close-button:hover {
     background-color: #0056b3;
 }
+
+.toggle-dark-mode
+{
+    background-color: var(--dark-accent);
+    color: var(--dark-text);
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+body.dark-mode .toggle-dark-mode
+{
+    background-color: var(--light-accent);
+    color: var(--light-text);
+}
+
+.toggle-dark-mode img
+{
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    display: block;
+}
+
+button {
+    border: none;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -27,11 +75,22 @@ table {
 th, td {
     padding: 8px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--light-accent);
 }
+
+body.dark-mode th, body.dark-mode td
+{
+    border-bottom: 1px solid var(--dark-accent);
+}
+
 th {
-    background-color: #f2f2f2;
+    background-color: var(--light-accent);
 }
+body.dark-mode th
+{
+    background-color: var(--dark-accent);
+}
+
 img {
     width: 200px;
     height: 80px;
