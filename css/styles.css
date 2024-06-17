@@ -25,9 +25,10 @@ body.dark-mode {
 }
 .header{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: right;
+
 }
+
 .upload-button, .close-button{
     background-color: #007BFF;
     color: white;
