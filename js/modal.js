@@ -3,10 +3,10 @@ function openModal() {
     const uploadField = document.getElementById('gameImage');
     uploadField.onchange = function () {
         console.log(this.files[0].size);
-        if(this.files[0].size > 2097152) {
-           alert("File is too big! Needs to be smaller than 2MB.");
-           this.value = "";
-        }
+        // if(this.files[0].size > 2097152) {
+        //    alert("File is too big! Needs to be smaller than 2MB.");
+        //    this.value = "";
+        // }
     };
 }
 

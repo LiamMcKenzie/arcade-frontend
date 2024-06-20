@@ -7,7 +7,8 @@
     <link rel="icon" href="img/icon.svg">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/modal.js"></script>
-    <script src="js/gamesList.js"></script>
+    <!-- <script src="js/gamesList.js"></script> -->
+     <script src="js/newGameslist.js"></script>
     <script src="js/darkmode.js"></script>
 </head>
 <body>
@@ -47,15 +48,15 @@
                     </div>
                     <div class="form-row">
                         <p>Creator(s)</p>
-                        <input type="text" id="gameCreators" name="gameCreators" placeholder="Creator(s)" required>
+                        <input type="text" id="developers" name="developers" placeholder="Creator(s)" required>
                     </div>
                     <div class="form-row">
                         <p>Class</p>
-                        <input type="text" id="gameClass" name="gameClass" placeholder="Class" required>
+                        <input type="text" id="className" name="className" placeholder="Class" required>
                     </div>
                     <div class="form-row">
                         <p>Release Year</p>
-                        <input type="number" id="releaseYear" name="releaseYear" placeholder="Release Year" required>
+                        <input type="number" id="yearReleased" name="yearReleased" placeholder="Release Year" required>
                     </div>
                 </div>
                 
@@ -63,7 +64,14 @@
                     <p>Game Image</p>
                     <input type="file" id="gameImage" name="gameImage" accept="image/*" required>
                 </div>
-                <button class="upload-button" onclick="addGameRow(gameImage.files[0], gameName.value, gameCreators.value, gameClass.value, releaseYear.value); closeModal()">Submit</button>
+
+                <div class="form-row">
+                    <p>Game File</p>
+                    <input type="file" id="gameFile" name="gameFile" required>
+                </div>
+                
+                <button class="upload-button" type="submit">Submit</button>
+                <!-- <button class="upload-button" onclick="uploadGame(); closeModal()">Submit</button> -->
             </form>
         </div>
     </div>
