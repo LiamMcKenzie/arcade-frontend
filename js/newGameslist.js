@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const reader = new FileReader();
         reader.onload = (e) => {
             const imageData = e.target.result;
+            const gameFileURL = URL.createObjectURL(gameFile); 
 
             const fileReader = new FileReader();
             fileReader.onload = (e) => {
@@ -74,10 +75,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 transaction.oncomplete = () => {
                     displayGames();
                 };
+
+                URL.revokeObjectURL(gameData);
             };
             fileReader.readAsDataURL(gameFile);
         };
         reader.readAsDataURL(gameImage);
+        
     });
 
     function displayGames() {
