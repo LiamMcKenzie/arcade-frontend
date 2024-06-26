@@ -2,11 +2,18 @@ function openModal() {
     document.getElementById('uploadModal').style.display = 'block';
     const uploadField = document.getElementById('gameImage');
     uploadField.onchange = function () {
-        console.log(this.files[0].size);
+        const file = this.files[0];
+        if (!file.type.startsWith('image/')) {
+            alert('Please select an image file.');
+            this.value = '';
+            return;
+        }
+        console.log(file.size);
         // if(this.files[0].size > 2097152) {
         //    alert("File is too big! Needs to be smaller than 2MB.");
         //    this.value = "";
         // }
+
     };
 }
 

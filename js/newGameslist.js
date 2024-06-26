@@ -22,12 +22,44 @@ document.addEventListener('DOMContentLoaded', () => {
         objectStore.transaction.oncomplete = () => {
             const gamesObjectStore = db.transaction('games', 'readwrite').objectStore('games');
             gamesObjectStore.add({
-                image: 'default_image.png',
-                name: 'Default Game',
-                developers: 'Default Developer',
-                className: 'Default Class',
-                yearReleased: 2000,
-                gameFile: 'default_game_file.zip'
+                image: 'img/banners/fresh catch.png',
+                name: 'Fresh Catch',
+                developers: 'Liam McKenzie',
+                className: 'Mobile App Dev',
+                yearReleased: 2023,
+                gameFile: 'https://mckeld3.itch.io/fresh-catch'
+            });
+            gamesObjectStore.add({
+                image: 'img/banners/scaredkrow.PNG',
+                name: 'ScaredKrow',
+                developers: 'Liam McKenzie, Johnathan Glasgow, Devon Henderson, Carlson Lee',
+                className: 'Game Development',
+                yearReleased: 2024,
+                gameFile: 'https://mckeld3.itch.io/scaredkrow'
+            });
+            gamesObjectStore.add({
+                image: 'img/banners/shotty.png',
+                name: 'Shotty',
+                developers: 'Liam McKenzie, Johnathan Glasgow',
+                className: 'Game Development',
+                yearReleased: 2024,
+                gameFile: 'https://mckeld3.itch.io/shotty'
+            });
+            gamesObjectStore.add({
+                image: 'img/banners/gostra.png',
+                name: 'Gostra',
+                developers: 'Liam McKenzie, Palin Wiseman, Johnathan Glasgow',
+                className: 'Game Development',
+                yearReleased: 2024,
+                gameFile: 'https://mckeld3.itch.io/gostra'
+            });
+            gamesObjectStore.add({
+                image: 'img/banners/renewify.png',
+                name: 'Gostra',
+                developers: 'Liam McKenzie, Palin Wiseman, Chase Bennett-Hill, Carlson Lee',
+                className: 'Studio 5/6',
+                yearReleased: 2024,
+                gameFile: 'https://mckeld3.itch.io/renewify'
             });
         };
     };
@@ -102,10 +134,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     <td>${game.className}</td>
                     <td>${game.yearReleased}</td>
                     <td>
-                        <a href="${game.gameFile}" class="download-button">Download</a>
+                        <a href="${game.gameFile}" target="_blank" class="download-button">Download</a>
                     </td>
-                    <td>${game.size}</td>
+                    
                 `;
+                //<td>${game.size}</td>
                 gamesTable.appendChild(gameDiv);
                 cursor.continue();
             }
