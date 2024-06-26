@@ -1,24 +1,137 @@
+:root{
+    --light-bg: #f2f2f2;
+    --light-text: #343640;
+    --light-accent: #d9d9d9;
+
+    --dark-bg: #343640;
+    --dark-text: #f2f2f2;
+    --dark-accent: #484b59;
+
+    --exit-button: #cc4949;
+    --exit-button-hover: #993737;
+
+    --green-button: #6acc49;
+    --green-button-hover: #509937;
+
+    --blue-button: #4980cc;
+    --blue-button-hover: #376099;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+
+
+
+::placeholder {
+    color: var(--light-text);
+    opacity: 0.5;
+}
+
+/* Hide spinbox from number input */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
+    font-family: "PT Mono", monospace;
     margin: 0;
     padding: 20px;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    
+
 }
+
+body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.background{
+    position: fixed;
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-position: center; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(50px);
+    opacity: 0.25;
+    transform: scale(1.2);
+}
+
+
 .header{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: right;
+
 }
+
+
 .upload-button, .close-button{
-    background-color: #007BFF;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
     cursor: pointer;
+    font-family: "PT Mono", monospace;
+    font-weight: 600;
 }
-.upload-button:hover, .close-button:hover {
-    background-color: #0056b3;
+
+.upload-button {
+    background-color: var(--blue-button);
 }
+.upload-button:hover {
+    background-color: var(--blue-button-hover);
+}
+
+.close-button {
+    background-color:var(--exit-button);
+}
+.close-button:hover{
+    background-color: var(--exit-button-hover);
+}
+
+
+
+.toggle-dark-mode
+{
+    background-color: var(--dark-accent);
+    color: var(--dark-text);
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+body.dark-mode .toggle-dark-mode
+{
+    background-color: var(--light-accent);
+    color: var(--light-text);
+}
+
+.toggle-dark-mode img
+{
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    display: block;
+}
+
+button {
+    border: none;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -27,11 +140,22 @@ table {
 th, td {
     padding: 8px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--light-accent);
 }
+
+body.dark-mode th, body.dark-mode td
+{
+    border-bottom: 1px solid var(--dark-accent);
+}
+
 th {
-    background-color: #f2f2f2;
+    background-color: var(--light-accent);
 }
+body.dark-mode th
+{
+    background-color: var(--dark-accent);
+}
+
 img {
     width: 200px;
     height: 80px;
@@ -64,17 +188,63 @@ img {
     padding-top: 50px;
 }
 .modal-content {
-    background-color: #fefefe;
+    /* background-color: var(--light-accent); */
+    background-color: rgba(255,255,255,0.5);
+    color: var(--light-text);
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
     width: 80%;
     max-width: 600px;
-    height: 50%;
+    border-radius: 5px;
+    backdrop-filter: blur(4px);
+    /* height: 50%; */
 }
-.form-row {
+
+body.dark-mode .modal-content
+{
+    /* background-color: var(--dark-accent); */
+    background-color: rgba(72, 75, 89,0.5);
+    color: var(--dark-text);
+}
+
+.modal-content p {
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+.modal-content input{
     width: 100%;
-    margin-bottom: 20px;
+    padding: 5px 0px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--light-accent);
+}
+
+.modal-content form{
+
+}
+
+.form-grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 20px;
+
+}
+
+.form-grid .form-row{
+    width: 100%;
+}
+
+.form-row {
+    width: 50%;
+    margin: auto;
+}
+
+.modal-content .upload-button
+{
+    width: 50%;
+    margin: auto;
+    display: block;
 }
 .close-button {
     color: white;
