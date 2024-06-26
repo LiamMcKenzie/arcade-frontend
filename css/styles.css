@@ -57,7 +57,6 @@ body.dark-mode {
 
 .background{
     position: fixed;
-    background-image: url('../img/banners/gostra.png');
     background-size: cover;
     background-repeat: no-repeat; 
     background-attachment: fixed; 

@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             gamesObjectStore.add({
                 image: 'img/banners/renewify.png',
-                name: 'Gostra',
+                name: 'Renewify',
                 developers: 'Liam McKenzie, Palin Wiseman, Chase Bennett-Hill, Carlson Lee',
                 className: 'Studio 5/6',
                 yearReleased: 2024,
@@ -158,20 +158,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 games.push(cursor.value.image);
                 cursor.continue();
             } else {
-                changeBackground();
+                console.log(games);
+                if (games != null)
+                {
+                    const randomIndex = Math.floor(Math.random() * games.length);
+
+                    const randomBanner = games[randomIndex];
+                    document.querySelector('.background').style.backgroundImage = `url('${randomBanner}')`;
+                }
             }
         };
     }
 
-    function changeBackground()
-    {
-        console.log(games);
-        if (games != null)
-        {
-            const randomIndex = Math.floor(Math.random() * games.length);
-
-            const randomBanner = games[randomIndex];
-            document.querySelector('.background').style.backgroundImage = `url('${randomBanner}')`;
-        }
-    }
 });
