@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 gameFile: 'https://mckeld3.itch.io/fresh-catch'
             });
             gamesObjectStore.add({
-                image: 'img/banners/scaredkrow.pn',
+                image: 'img/banners/scaredkrow.png',
                 name: 'ScaredKrow',
                 developers: 'Liam McKenzie, Johnathan Glasgow, Devon Henderson, Carlson Lee',
                 className: 'Game Development',
