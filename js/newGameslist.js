@@ -82,36 +82,30 @@ document.addEventListener('DOMContentLoaded', () => {
         const developers = document.getElementById('developers').value;
         const className = document.getElementById('className').value;
         const yearReleased = document.getElementById('yearReleased').value;
-        const gameFile = document.getElementById('gameFile').files[0];
+        const gameFile = document.getElementById('gameFile').value;
+
 
         const reader = new FileReader();
         reader.onload = (e) => {
             const imageData = e.target.result;
-            const gameFileURL = URL.createObjectURL(gameFile); 
 
-            const fileReader = new FileReader();
-            fileReader.onload = (e) => {
-                const gameData = e.target.result;
-
-                const transaction = db.transaction(['games'], 'readwrite');
-                const objectStore = transaction.objectStore('games');
-                const gameDataObj = {
-                    image: imageData,
-                    name: gameName,
-                    developers: developers,
-                    className: className,
-                    yearReleased: parseInt(yearReleased),
-                    gameFile: gameData
-                };
-                //print(gameDataObj);
-                objectStore.add(gameDataObj);
-                transaction.oncomplete = () => {
-                    displayGames();
-                };
-
-                URL.revokeObjectURL(gameData);
+            const transaction = db.transaction(['games'], 'readwrite');
+            const objectStore = transaction.objectStore('games');
+            const gameDataObj = {
+                image: imageData,
+                name: gameName,
+                developers: developers,
+                className: className,
+                yearReleased: parseInt(yearReleased),
+                gameFile: gameFile
             };
-            fileReader.readAsDataURL(gameFile);
+            //print(gameDataObj);
+            objectStore.add(gameDataObj);
+            transaction.oncomplete = () => {
+                displayGames();
+                document.getElementById('uploadModal').style.display = 'none';
+            };
+
         };
         reader.readAsDataURL(gameImage);
         
