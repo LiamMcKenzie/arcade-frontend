@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     openRequest.onsuccess = (event) => {
         db = event.target.result;
         displayGames();
+        background();
     };
 
     openRequest.onerror = (event) => {
@@ -128,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const game = cursor.value;
                 const gameDiv = document.createElement('tr');
                 gameDiv.innerHTML = `
-                    <td><img src="${game.image}" alt="${game.image} Banner"></td>
+                    <td><img src="${game.image}" alt="${game.image}  Banner"></td>
                     <td>${game.name}</td>
                     <td>${game.developers}</td>
                     <td>${game.className}</td>
@@ -145,4 +146,32 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
+    function background()
+    {
+        const transaction = db.transaction(['games'], 'readonly');
+        const objectStore = transaction.objectStore('games');
+        const games = [];
+
+        objectStore.openCursor().onsuccess = function(event) {
+            const cursor = event.target.result;
+            if (cursor) {
+                games.push(cursor.value.image);
+                cursor.continue();
+            } else {
+                changeBackground();
+            }
+        };
+    }
+
+    function changeBackground()
+    {
+        console.log(games);
+        if (games != null)
+        {
+            const randomIndex = Math.floor(Math.random() * games.length);
+
+            const randomBanner = games[randomIndex];
+            document.querySelector('.background').style.backgroundImage = `url('${randomBanner}')`;
+        }
+    }
 });
